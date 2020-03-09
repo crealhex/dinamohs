@@ -1,5 +1,7 @@
 package com.dinamohs.webpage.servlets;
 
+import com.dinamohs.webpage.system.dto.User;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,6 +10,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
+/**
+ * @author crealhex
+ */
 @WebServlet(name = "ServletController", urlPatterns = "/controller")
 public class ServletController extends HttpServlet {
 
@@ -43,12 +48,17 @@ public class ServletController extends HttpServlet {
         }
     }
 
+    /**
+     * Method to validate if the username and password provided are correct
+     */
     private void verifyLogin(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         String username = req.getParameter("username");
         String password = req.getParameter("password");
 
-//        User userDTO = new User();
+        User user = new User();
+        user.setUsername(username);
+        user.setPassword(password);
 //        UserService userService = new UserServiceImpl.getInstance();
 
     }
