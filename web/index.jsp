@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<jsp:include page="WEB-INF/page/basic/header.jsp"/>
-<jsp:include page="WEB-INF/page/basic/menu.jsp"/>
+<jsp:include page="/WEB-INF/page/basic/header.jsp"/>
+<jsp:include page="/WEB-INF/page/basic/menu.jsp"/>
+<jsp:include page="/WEB-INF/page/basic/message.jsp"/>
 
 <div id="main">
     <div class="subtitle">

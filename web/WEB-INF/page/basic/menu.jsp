@@ -1,3 +1,4 @@
+<%--@elvariable id="user" type="com.dinamohs.webpage.servlets.ServletController"--%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <div id="nav">
     <div class="right">
