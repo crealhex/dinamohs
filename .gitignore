@@ -1,0 +1,7 @@
+# IntelliJ config
+.idea/
+*.iml
+
+# Project binary files
+/lib
+/out
