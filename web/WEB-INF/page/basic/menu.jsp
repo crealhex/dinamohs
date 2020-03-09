@@ -4,7 +4,7 @@
         ${ user != null ? "Bienvenido " : "" }
     </div>
     <div class="left">
-        <a href="${pageContext.request.contextPath}/index.jsp">Inicio</a>
+        <a href="${pageContext.request.contextPath}/">Inicio</a>
     </div>
     <c:if test="${user != null}">
         <a href="${pageContext.request.contextPath}/controller?action=exit">Salir</a>
