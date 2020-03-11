@@ -49,15 +49,15 @@ public interface UserDAO {
     /**
      * Gets the value of max rows.
      */
-    void getMaxRows();
+    int getMaxRows();
 
     /**
      * Returns all rows from the user table that match the specified arbitrary SQL statement.
      */
-    User[] getBySelect() throws UserDaoException;
+    User[] getBySelect(final String SCRIPT, Object[] params) throws UserDaoException;
 
     /**
      * Returns all rows from the user table that match the specified arbitrary SQL statement.
      */
-    User[] getByWhere(final String SQL) throws UserDaoException;
+    User[] getByWhere(final String SCRIPT, Object[] params) throws UserDaoException; // TODO
 }

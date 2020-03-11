@@ -5,3 +5,9 @@
 # Project binary files
 /lib
 /out
+
+# Ignoring database script
+db_dinamohs.sql
+
+# Ignoring database properties
+src/connection.properties

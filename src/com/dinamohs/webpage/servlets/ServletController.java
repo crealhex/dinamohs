@@ -1,5 +1,7 @@
 package com.dinamohs.webpage.servlets;
 
+import com.dinamohs.webpage.services.couriers.UserTrack;
+import com.dinamohs.webpage.services.rules.UserRules;
 import com.dinamohs.webpage.system.dto.User;
 
 import javax.servlet.ServletException;
@@ -59,7 +61,10 @@ public class ServletController extends HttpServlet {
         User user = new User();
         user.setUsername(username);
         user.setPassword(password);
-//        UserService userService = new UserServiceImpl.getInstance();
+
+//        UserRules userTracker = UserTrack.getInstance();
+//        boolean verified = userTracker.verifyUserData(user);
+        // TODO UserService userService = new UserServiceImpl.getInstance();
 
     }
 
