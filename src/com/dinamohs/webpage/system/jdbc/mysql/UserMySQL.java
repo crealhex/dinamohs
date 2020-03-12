@@ -23,11 +23,18 @@ public class UserMySQL extends DAO implements UserDAO {
 
     protected int maxRows;
 
+    /**
+     * (non-Javadoc)
+     * @see com.dinamohs.webpage.system.dao.UserDAO#insert(User)
+     */
     @Override
     public UserPK insert(User user) throws UserDaoException {
         return null;
     }
 
+    /**
+     * @see com.dinamohs.webpage.system.dao.UserDAO#update(UserPK, User)
+     */
     @Override
     public void update(UserPK pk, User user) throws UserDaoException {
 
@@ -69,7 +76,7 @@ public class UserMySQL extends DAO implements UserDAO {
     }
 
     @Override
-    public User[] getBySelect() throws UserDaoException {
+    public User[] getBySelect(String SCRIPT, Object[] params) throws UserDaoException {
         return new User[0];
     }
 

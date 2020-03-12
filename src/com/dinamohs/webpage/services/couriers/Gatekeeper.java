@@ -8,6 +8,10 @@ import java.util.Enumeration;
 import java.util.Properties;
 import java.util.ResourceBundle;
 
+/**
+ * This helper is prepared to handle, open and close database connections.
+ * @author Luis Enco (crealhex)
+ */
 public class Gatekeeper {
 
     private static String JDBC_DRIVER;
@@ -17,13 +21,25 @@ public class Gatekeeper {
     private static int MAX_POOL_SIZE;
     private static int IDLE_TIME_POOL;
 
+    /**
+     * Name of the file that contains all the connection information.
+     */
     private final static String JDBC_FILE_NAME = "connection";
-    private static Driver driver = null;
 
+    /**
+     * Allows to open a new connection to be used in most cases to obtain
+     * data from the database.
+     * @return Established connection.
+     * @throws SQLException In case of errors to open the connection.
+     */
     public static synchronized Connection open() throws SQLException {
         return getDataSource().getConnection();
     }
 
+    /**
+     * Allows handle the connection values extracted from a file.
+     * @param file name of the file with <code>.properties</code> extension.
+     */
     public static void loadProperties(String file) {
         Properties props = new Properties();
         ResourceBundle bundle = ResourceBundle.getBundle(file);
@@ -41,10 +57,14 @@ public class Gatekeeper {
         JDBC_PASS = props.getProperty("PASSWORD");
         MAX_POOL_SIZE = Integer.parseInt(props.getProperty("MAX_POOL_SIZE"));
         IDLE_TIME_POOL = Integer.parseInt(props.getProperty("IDLE_TIME"));
-
-//        TODO return-> properties;
     }
 
+    /**
+     * Generates a DataSource using the properties handler considering
+     * the values of a connection pool.
+     * @see Gatekeeper#loadProperties(String)
+     * @return DataSource ready for connection.
+     */
     public static DataSource getDataSource() {
         loadProperties(JDBC_FILE_NAME);
         BasicDataSource source = new BasicDataSource();
@@ -57,6 +77,12 @@ public class Gatekeeper {
         return source;
     }
 
+    /**
+     * Closes all instances to prevent memory leakage.
+     * @param connection current connection oppened.
+     * @param statement current statement in use.
+     * @param result current result with established data.
+     */
     public static void close(Connection connection, PreparedStatement statement, ResultSet result) {
         try {
             if (connection != null) {
