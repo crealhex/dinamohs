@@ -23,18 +23,11 @@ public class UserMySQL extends DAO implements UserDAO {
 
     protected int maxRows;
 
-    /**
-     * (non-Javadoc)
-     * @see com.dinamohs.webpage.system.dao.UserDAO#insert(User)
-     */
     @Override
     public UserPK insert(User user) throws UserDaoException {
         return null;
     }
 
-    /**
-     * @see com.dinamohs.webpage.system.dao.UserDAO#update(UserPK, User)
-     */
     @Override
     public void update(UserPK pk, User user) throws UserDaoException {
 
@@ -80,12 +73,6 @@ public class UserMySQL extends DAO implements UserDAO {
         return new User[0];
     }
 
-    /**
-     * Returns all rows from the user table that match the specified arbitrary SQL statement.
-     * @param SCRIPT SQL
-     * @return array of User
-     * @throws UserDaoException for DAO pattern
-     */
     @Override
     public User[] getByWhere(String SCRIPT, Object[] params) throws UserDaoException {
 
@@ -113,12 +100,11 @@ public class UserMySQL extends DAO implements UserDAO {
             e.printStackTrace();
             throw new UserDaoException("Exception " + e.getMessage(), e);
         } finally {
-            // TODO Gatekeeper.close();
             Gatekeeper.close(conn, statement, result);
         }
     }
 
-    private User[] fetchMultiResults(ResultSet result) throws SQLException { // TODO
+    private User[] fetchMultiResults(ResultSet result) throws SQLException {
         Collection<User> list = new ArrayList<>();
         while (result.next()) {
             User user = new User();

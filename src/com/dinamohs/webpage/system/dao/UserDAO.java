@@ -59,5 +59,5 @@ public interface UserDAO {
     /**
      * Returns all rows from the user table that match the specified arbitrary SQL statement.
      */
-    User[] getByWhere(final String SCRIPT, Object[] params) throws UserDaoException; // TODO
+    User[] getByWhere(final String SCRIPT, Object[] params) throws UserDaoException;
 }
